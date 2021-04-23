@@ -16,6 +16,14 @@
         {% endfor %}
     </ul>
   <p><strong>No of pages:</strong>{{ book.no_of_pages }}</p>
-  <p><strong>Publisher:</strong>{{ book.publishers }}</p>
+  <p><strong>Publisher:</strong></p>
+  <ul>
+    {% for publisher in book.publishers.all %}
+    <li>
+    {{ publisher }}
+    </li>
+    {% endfor %}
+</ul>
   <p><strong>Date Published:</strong>{{ book.published_date }}</p>
+        
  {% endblock %}
