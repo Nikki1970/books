@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from booksapp.models import Book
 from django.views import generic
 from .forms import BookForm
@@ -14,7 +14,6 @@ def book_new(request):
     form = BookForm(request.POST or None)
     if form.is_valid():
         form = form.save(commit=False)
-        form.author = request.User
         form.save()
         return redirect('list-of-books')
     context = {
