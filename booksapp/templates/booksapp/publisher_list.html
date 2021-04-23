@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <a href="{% url 'new_publisher' %}" class="btn btn-primary btn-sm">New Genre</a>
+<div class="container">
+    <ul>
+        {% for publisher in publisher_list %}
+            <li>
+            <p>{{ publisher.name }}</p>
+                <a href="{% url 'update_publisher' publisher.pk %}" class="btn btn-success btn-sm">Update</a>
+                <a href="{% url 'delete_publisher' publisher.pk %}" class="btn btn-danger btn-sm">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
