@@ -12,8 +12,8 @@
         {% for book in filter.qs %}
         <li>
             <a href="{% url 'book-detail' book.pk %}">{{book.title}}</a>
-            <a href="{% url 'delete_book' book.pk %}" class="btn btn-danger btn-sm">Delete</a></td>
-            <a href="{% url 'update_book' book.pk %}" class="btn btn-success btn-sm">Update</a></td>
+            <a href="{% url 'delete_book' book.pk %}" class="btn btn-danger btn-sm">Delete</a>
+            <a href="{% url 'update_book' book.pk %}" class="btn btn-success btn-sm">Update</a>
         </li>
         {% endfor %}
     </ul>
