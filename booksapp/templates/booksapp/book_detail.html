@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ book.title }}</h1>
+
+  <p><strong>Name:</strong> {{ book.title }}</p> 
+  <p><strong>About the Book:</strong> {{ book.description }}</p>
+  <p><strong>ISBN:</strong>{{ book.isbn }}</p>
+  <p><strong>Author:</strong> {{ book.author}}</p>
+  <p><strong>Genre:</strong>
+    <ul>
+        {% for genre in book.genre.all %}
+        <li>
+        {{ genre }}
+        </li>
+        {% endfor %}
+    </ul>
+  <p><strong>No of pages:</strong>{{ book.no_of_pages }}</p>
+  <p><strong>Publisher:</strong>{{ book.publishers }}</p>
+  <p><strong>Date Published:</strong>{{ book.published_date }}</p>
+ {% endblock %}
