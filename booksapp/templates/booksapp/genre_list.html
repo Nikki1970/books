@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block content %}
+ <!-- <div class="p-2 mb-4 bg-dark bg-gradient text-white">
+    <form method="GET">
+      {{filter.form}}
+      <button type="submit" class="p-1 mb-1 btn btn-info">Filter</button>
+    </form>
+  </div> -->
+  <a href="{% url 'new_genre' %}" class="btn btn-primary btn-sm">New Genre</a>
+<div class="container">
+    <ul>
+        {% for genre in genre_list %}
+        <li>
+            <p>{{ genre.name }}</a>
+              <a href="{% url 'update_genre' genre.pk %}" class="btn btn-success btn-sm">Update</a>
+              <a href="{% url 'delete_genre' genre.pk %}" class="btn btn-danger btn-sm">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
