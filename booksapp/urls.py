@@ -11,6 +11,7 @@ urlpatterns=[
     path('updategenre/<int:pk>/',views.update_genre, name="update_genre"),
     path('delete/genre/<int:pk>/', views.Genredeleteview.as_view(), name = 'delete_genre'),
     path('publishers/',views.PublisherListView.as_view(), name='list-of-publishers'),
+    path('publishers/detail/<int:pk>/',views.PublisherDetailView.as_view(),name='publisher-detail'),
     path('newpublisher/',views.PublisherCreateView.as_view(), name='new_publisher'),
     path('updatepublisher/<int:pk>/', views.Publisherupdateview.as_view(),name='update_publisher'),
     path('delete/publisher/<int:pk>/', views.Publisherdeleteview.as_view(),name='delete_publisher'),

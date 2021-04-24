@@ -26,7 +26,7 @@ class BookDetailView(generic.DetailView):
         obj = Book.objects.get(pk=self.kwargs.get('pk'))
         image = obj.image.name
         image = os.path.basename(image)
-        image = 'images' + '//'+image
+        image = 'image' + '//'+ image
         context['image_name'] = image
         return context
 
@@ -99,9 +99,13 @@ class PublisherListView(generic.ListView):
     model = Publisher
 
 
+class PublisherDetailView(generic.DetailView):
+    model = Publisher
+
+
 class PublisherCreateView(generic.CreateView):
     model = Publisher
-    fields = ['name']
+    fields = ['name','address','phone']
     success_url = reverse_lazy('list-of-publishers')
 
 

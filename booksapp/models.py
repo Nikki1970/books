@@ -7,7 +7,7 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     isbn = models.CharField('ISBN', max_length = 20, unique = True)
     no_of_pages = models.IntegerField()
-    image = models.ImageField(update"booksapp/static/images",null=True,blank=True)
+    image = models.ImageField(upload_to="booksapp/static/image",null=True,blank=True)
     description = models.TextField(max_length = 2000)
     author = models.ForeignKey(User, on_delete = models.SET_NULL, null = True)
     genre  = models.ManyToManyField('Genre')
@@ -23,7 +23,8 @@ class Genre(models.Model):
         return self.name
 
 class Publisher(models.Model):
-    name = models.CharField(max_length = 150)
-
+    name = models.CharField(max_length = 150, null=True)
+    address = models.TextField(max_length = 200, null=True)
+    phone = models.CharField(max_length = 10, null=True)
     def __str__(self):
         return self.name
