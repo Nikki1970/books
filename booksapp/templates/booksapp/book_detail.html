@@ -1,5 +1,5 @@
 {% extends "base_generic.html" %}
-
+{% load static %}
 {% block content %}
   <h1>Title: {{ book.title }}</h1>
 
@@ -7,11 +7,12 @@
   <p><strong>About the Book:</strong> {{ book.description }}</p>
   <p><strong>ISBN:</strong>{{ book.isbn }}</p>
   <p><strong>Author:</strong> {{ book.author}}</p>
+  <p><strong>Image:</strong><img src="{% static image_name %}" width="50%" height="50%"></p>
   <p><strong>Genre:</strong>
     <ul>
         {% for genre in book.genre.all %}
         <li>
-        {{ genre }}
+        <a href="{% url 'genre-books' genre.pk %}">{{ genre }}</a>
         </li>
         {% endfor %}
     </ul>

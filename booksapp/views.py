@@ -114,3 +114,11 @@ class Publisherupdateview(generic.UpdateView):
 class Publisherdeleteview(generic.DeleteView):
     model = Publisher
     success_url = reverse_lazy('list-of-publishers')
+
+
+def genre_books(request, pk):
+    genre_books = Book.objects.filter(genre=pk)
+    context = {
+        'genre_books': genre_books
+    }
+    return render(request,'booksapp/genre_books.html', context = context)
