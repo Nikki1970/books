@@ -5,6 +5,7 @@ from .forms import BookForm, GenreForm
 from .filters import BookFilter
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
+import os
 # Create your views here.
 
 
@@ -20,6 +21,14 @@ class BookListView(generic.ListView):
 class BookDetailView(generic.DetailView):
     model = Book
 
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        obj = Book.objects.get(pk=self.kwargs.get('pk'))
+        image = obj.image.name
+        image = os.path.basename(image)
+        image = 'images' + '//'+image
+        context['image_name'] = image
+        return context
 
 def book_new(request):
     form = BookForm(request.POST or None)

@@ -14,4 +14,5 @@ urlpatterns=[
     path('newpublisher/',views.PublisherCreateView.as_view(), name='new_publisher'),
     path('updatepublisher/<int:pk>/', views.Publisherupdateview.as_view(),name='update_publisher'),
     path('delete/publisher/<int:pk>/', views.Publisherdeleteview.as_view(),name='delete_publisher'),
+    path('genre/book/<int:pk>/', views.genre_books, name="genre-books"),
 ]
